@@ -1,5 +1,8 @@
-name: CI
-on: push
+name: Release
+on:
+    push:
+        branches:
+            - master
 jobs:
     release:
         runs-on: ubuntu-16.04

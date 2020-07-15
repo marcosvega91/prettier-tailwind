@@ -1,0 +1,88 @@
+name: PR
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+
+env:
+    NODE_VERSION: '12.x'
+
+jobs:
+    meta:
+        if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        steps:
+            - name: Assign PR to author
+              uses: samspills/assign-pr-to-author@v1.0
+              if: github.event_name == 'pull_request' && github.event.action == 'opened'
+              with:
+                  repo-token: '${{ secrets.GITHUB_TOKEN }}'
+
+    setup:
+        name: Setup
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '${{ env.NODE_VERSION }}'
+
+            - name: Cache node modules
+              id: cache
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install Dependencies
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: yarn
+
+    eslint:
+        name: Eslint
+        runs-on: ubuntu-latest
+        needs: [setup]
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '${{ env.NODE_VERSION }}'
+
+            - name: Fetch all branches
+              run: |
+                  git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+            - name: Cache node modules
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Run Eslint
+              run: yarn lint:ci -- $(git diff --diff-filter d --name-only origin/${{ github.base_ref }}...HEAD -- '*.js' '*.jsx')
+
+    tests:
+        name: Tests
+        runs-on: ubuntu-latest
+        needs: [setup]
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '${{ env.NODE_VERSION }}'
+
+            - name: Cache node modules
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Run Tests
+              run: yarn test:ci

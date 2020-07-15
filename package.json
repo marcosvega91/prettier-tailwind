@@ -9,6 +9,7 @@
 		"test:ci": "jest --ci",
 		"prettier": "prettier --write .",
 		"lint": "eslint .",
+		"lint:ci": "eslint",
 		"semantic-release": "semantic-release"
 	},
 	"dependencies": {

@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"test": "jest --watch",
+		"test:ci": "jest --ci",
 		"prettier": "prettier --write .",
 		"lint": "eslint .",
 		"semantic-release": "semantic-release"

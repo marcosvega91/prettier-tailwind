@@ -1,5 +1,3 @@
-import { classSorter } from '../options'
-
 const sortClassArray = (classArray, sortOrder) => [
 	...classArray.filter((el) => sortOrder.indexOf(el) === -1),
 	...classArray
@@ -20,7 +18,7 @@ export const sortClassString = (classString, sortOrder, { shouldRemoveDuplicates
 	return classArray.join(' ')
 }
 
-export const sortClassInText = (text, regex) => {
+export const sortClassInText = (text, regex, classSorter, { removeDuplicates = true } = {}) => {
 	let classWrapper
 	while ((classWrapper = regex.exec(text)) !== null) {
 		const wrapperMatch = classWrapper[0]
@@ -31,7 +29,7 @@ export const sortClassInText = (text, regex) => {
 		const endPosition = startPosition + valueMatch.length
 
 		const sortedClasses = sortClassString(text.substring(startPosition, endPosition), classSorter, {
-			shouldRemoveDuplicates: true
+			shouldRemoveDuplicates: removeDuplicates
 		})
 
 		const beforeClass = text.substring(0, startPosition)

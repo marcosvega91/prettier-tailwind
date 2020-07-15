@@ -3,6 +3,7 @@ import prettierParserFlow from 'prettier/parser-flow'
 import prettierParserBabel from 'prettier/parser-babel'
 import parserHtml from './parsers/parserHtml'
 import parserJSX from './parsers/parserJSX'
+import { options } from './options'
 
 const languages = [
 	{
@@ -31,7 +32,9 @@ const parsers = {
 	}
 }
 
-module.exports = {
+const plugin = {
 	languages,
-	parsers
+	parsers,
+	options
 }
+module.exports = plugin

@@ -12,6 +12,11 @@
   <a href="#badge">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
   </a>
+  <a href="https://www.npmjs.com/package/prettier-plugin-tailwind-css">
+    <img alt="npm version" src="https://img.shields.io/npm/v/prettier-plugin-tailwind-css.svg?style=flat-square"></a>
+  <a href="https://github.com/semantic-release/semantic-release">
+    <img alt="semantic release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"></a>
+  <br/>
 </p>
 
 ## Intro

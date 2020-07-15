@@ -6,11 +6,25 @@ it('should sort classes correcly', () => {
 	<div class="mx-auto flex justify-between items-center max-w-6xl h-16"></div>
 	`
 	const output = prettier.format(unformatted, {
-		parser: 'tailwind-html',
+		parser: 'html',
 		plugins: [plugin]
 	})
 	expect(output).toMatchInlineSnapshot(`
 		"<div class=\\"flex items-center justify-between h-16 max-w-6xl mx-auto\\"></div>
+		"
+	`)
+})
+
+it('should not duplicate classes when are unknown', () => {
+	const unformatted = `
+	<div class="unknown"></div>
+	`
+	const output = prettier.format(unformatted, {
+		parser: 'html',
+		plugins: [plugin]
+	})
+	expect(output).toMatchInlineSnapshot(`
+		"<div class=\\"unknown\\"></div>
 		"
 	`)
 })

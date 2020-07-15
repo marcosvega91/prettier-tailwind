@@ -4,8 +4,7 @@ const sortClassArray = (classArray, sortOrder) => [
 	...classArray.filter((el) => sortOrder.indexOf(el) === -1),
 	...classArray
 		.filter((el) => sortOrder.indexOf(el) !== -1)
-		.sort((a, b) => sortOrder.indexOf(a) - sortOrder.indexOf(b)),
-	...classArray.filter((el) => sortOrder.indexOf(el) === -1)
+		.sort((a, b) => sortOrder.indexOf(a) - sortOrder.indexOf(b))
 ]
 
 const removeDuplicates = (classArray) => [...new Set(classArray)]

@@ -12,7 +12,7 @@ it('should sort classes correcly', () => {
     }
 	`
 	const output = prettier.format(unformatted, {
-		parser: 'tailwind-jsx',
+		parser: 'flow',
 		plugins: [plugin]
 	})
 	expect(output).toMatchInlineSnapshot(`
@@ -36,7 +36,7 @@ it('should remove duplicate classes', () => {
     }
 	`
 	const output = prettier.format(unformatted, {
-		parser: 'tailwind-jsx',
+		parser: 'flow',
 		plugins: [plugin]
 	})
 	expect(output).toMatchInlineSnapshot(`

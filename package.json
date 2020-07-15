@@ -1,9 +1,10 @@
 {
-	"name": "prettier-tailwind",
-	"version": "0.0.0-development",
+	"name": "prettier-plugin-tailwind-css",
+	"version": "0.0.5-development",
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
+		"build": "./node_modules/.bin/rollup -c",
 		"test": "jest --watch",
 		"test:ci": "jest --ci",
 		"prettier": "prettier --write .",
@@ -16,9 +17,11 @@
 	"devDependencies": {
 		"@babel/core": "^7.10.5",
 		"@babel/preset-env": "^7.10.4",
+		"@rollup/plugin-babel": "^5.1.0",
 		"@types/jest": "^26.0.4",
 		"@types/node": "^14.0.23",
 		"@types/prettier": "^2.0.2",
+		"babel-cli": "^6.26.0",
 		"babel-jest": "^26.1.0",
 		"eslint": "^7.4.0",
 		"eslint-config-prettier": "^6.11.0",
@@ -26,6 +29,7 @@
 		"husky": "^4.2.5",
 		"jest": "^26.1.0",
 		"lint-staged": "^10.2.11",
+		"rollup": "^2.21.0",
 		"semantic-release": "^17.1.1"
 	},
 	"husky": {

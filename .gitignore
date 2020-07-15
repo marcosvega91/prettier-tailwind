@@ -1,0 +1,11 @@
+#IDE
+.vscode
+
+#test
+coverage
+
+#dep
+node_modules
+
+
+report*

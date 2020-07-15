@@ -1,0 +1,33 @@
+{
+	"name": "prettier-tailwind",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"test": "jest --watch",
+		"prettier": "prettier --write .",
+		"lint": "eslint ."
+	},
+	"dependencies": {
+		"prettier": "^2.0.5"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.10.5",
+		"@babel/preset-env": "^7.10.4",
+		"@types/jest": "^26.0.4",
+		"@types/node": "^14.0.23",
+		"@types/prettier": "^2.0.2",
+		"babel-jest": "^26.1.0",
+		"eslint": "^7.4.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"husky": "^4.2.5",
+		"jest": "^26.1.0",
+		"lint-staged": "^10.2.11"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	}
+}

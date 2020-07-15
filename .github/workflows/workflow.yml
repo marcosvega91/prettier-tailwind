@@ -1,7 +1,7 @@
 name: CI
 on: push
 jobs:
-    test:
+    release:
         runs-on: ubuntu-16.04
         steps:
             - uses: actions/checkout@v2
@@ -10,6 +10,8 @@ jobs:
                   node-version: '12'
             - run: yarn
             - run: yarn test:ci
+            - name: Build
+              run: yarn build
             - name: Release
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

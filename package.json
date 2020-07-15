@@ -1,12 +1,13 @@
 {
 	"name": "prettier-tailwind",
-	"version": "1.0.0",
+	"version": "0.0.0-development",
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
 		"test": "jest --watch",
 		"prettier": "prettier --write .",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"semantic-release": "semantic-release"
 	},
 	"dependencies": {
 		"prettier": "^2.0.5"
@@ -23,11 +24,16 @@
 		"eslint-plugin-prettier": "^3.1.4",
 		"husky": "^4.2.5",
 		"jest": "^26.1.0",
-		"lint-staged": "^10.2.11"
+		"lint-staged": "^10.2.11",
+		"semantic-release": "^17.1.1"
 	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged"
 		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/marcosvega91/prettier-tailwind.git"
 	}
 }

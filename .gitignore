@@ -7,5 +7,7 @@ coverage
 #dep
 node_modules
 
+#build
+index.js
 
 report*

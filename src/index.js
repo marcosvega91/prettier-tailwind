@@ -1,8 +1,7 @@
 import prettierParserHTML from 'prettier/parser-html'
 import prettierParserFlow from 'prettier/parser-flow'
 import prettierParserBabel from 'prettier/parser-babel'
-import parserHtml from './parsers/parserHtml'
-import parserJSX from './parsers/parserJSX'
+import { getParse } from './parser'
 import { options } from './options'
 
 const languages = [
@@ -20,15 +19,15 @@ const languages = [
 const parsers = {
 	html: {
 		...prettierParserHTML.parsers.html,
-		parse: parserHtml.parse
+		parse: getParse('html', prettierParserHTML.parsers.html.parse)
 	},
 	flow: {
 		...prettierParserFlow.parsers.flow,
-		parse: parserJSX.parse
+		parse: getParse('javascriptreact', prettierParserFlow.parsers.flow.parse)
 	},
 	babel: {
 		...prettierParserBabel.parsers.babel,
-		parse: parserJSX.parse
+		parse: getParse('javascriptreact', prettierParserBabel.parsers.babel.parse)
 	}
 }
 
@@ -37,4 +36,4 @@ const plugin = {
 	parsers,
 	options
 }
-module.exports = plugin
+export default plugin

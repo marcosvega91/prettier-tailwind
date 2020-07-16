@@ -44,3 +44,49 @@ it('should not remove duplicates if options i set to false', () => {
 		removeDuplicatesClasses: false
 	})
 })
+
+it('should not throw error if regex are malformed', () => {
+	expect(() => {
+		prettier.format('<div/>', {
+			parser: 'html',
+			plugins: [plugin],
+			...prettierOptions,
+			classRegex: `notexist.json`
+		})
+	}).not.toThrow()
+
+	expect(() => {
+		prettier.format('<div/>', {
+			parser: 'html',
+			plugins: [plugin],
+			...prettierOptions,
+			classRegex: `${__dirname}/mocks/regexMalformed.json`
+		})
+	}).not.toThrow()
+})
+
+it('should not throw error if sorter is malformed', () => {
+	expect(() => {
+		prettier.format('<div/>', {
+			parser: 'html',
+			plugins: [plugin],
+			...prettierOptions,
+			classSorter: `notexist.json`
+		})
+	}).not.toThrow()
+
+	expect(() => {
+		prettier.format('<div class="flex items-center justify-between h-16 max-w-6xl mx-auto"></div>', {
+			parser: 'html',
+			plugins: [plugin],
+			...prettierOptions,
+			classSorter: `${__dirname}/mocks/sorterMalformed.json`
+		})
+	}).not.toThrow()
+})
+
+it('should support custom regex', () => {
+	testOnLanguage('custom_regex', 'html', 'html', {
+		classRegex: `${__dirname}/mocks/customRegex.json`
+	})
+})

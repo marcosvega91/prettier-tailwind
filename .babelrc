@@ -1,3 +1,4 @@
 {
-	"presets": [["@babel/preset-env", { "targets": ["last 2 versions"] }]]
+	"presets": [["@babel/preset-env", { "targets": ["last 2 versions"] }]],
+	"ignore": ["./test/mocks/"]
 }

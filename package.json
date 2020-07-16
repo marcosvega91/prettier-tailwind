@@ -1,7 +1,7 @@
 {
 	"name": "prettier-plugin-tailwind-css",
 	"version": "0.0.5-development",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"license": "MIT",
 	"scripts": {
 		"build": "./node_modules/.bin/rollup -c",
@@ -31,6 +31,7 @@
 		"jest": "^26.1.0",
 		"lint-staged": "^10.2.11",
 		"rollup": "^2.21.0",
+		"rollup-plugin-copy": "^3.3.0",
 		"semantic-release": "^17.1.1"
 	},
 	"husky": {

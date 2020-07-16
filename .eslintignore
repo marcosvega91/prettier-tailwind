@@ -1,1 +1,3 @@
 coverage
+test/mocks/babel
+test/mocks/flow

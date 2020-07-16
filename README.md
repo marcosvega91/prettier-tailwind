@@ -19,6 +19,10 @@
   <br/>
 </p>
 
+> "Make it work, make it right, make it fast"
+>
+> - [Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck)
+
 ## Intro
 
 Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
@@ -29,7 +33,12 @@ This plugin adds support for the Tailwind CSS library.
 
 This plugin will sort tailwind classes as [headwind](https://github.com/heybourn/headwind) does and will also remove duplicates classes.
 
-Actually the plugin works for `html` language and `jsx` language.
+Actually the plugin works for the following languages:
+
+1. `html`
+2. `js`
+3. `jsx`
+4. `vue`
 
 ### Input
 

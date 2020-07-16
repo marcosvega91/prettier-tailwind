@@ -54,3 +54,13 @@ Install prettier-plugin-tailwind-css:
 ```
 npm install --save-dev prettier-plugin-tailwind-css
 ```
+
+## Configuration
+
+Prettier for Tailwind supports the following options.
+
+| Name                      | Default             | Description                                                                                         |
+| ------------------------- | ------------------- | --------------------------------------------------------------------------------------------------- |
+| `removeDuplicatesClasses` | `true`              | If set to `"true"`, all duplicate classes found will be deleted                                     |
+| `classRegex`              | `./src/regex.json`  | See [file](https://raw.githubusercontent.com/marcosvega91/prettier-tailwind/master/src/regex.json)  |
+| `classSorter`             | `./src/sorter.json` | See [file](https://raw.githubusercontent.com/marcosvega91/prettier-tailwind/master/src/sorter.json) |

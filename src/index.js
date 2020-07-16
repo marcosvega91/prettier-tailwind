@@ -14,6 +14,11 @@ const languages = [
 		name: 'Tailwind HTML',
 		extensions: ['.html'],
 		parsers: ['html']
+	},
+	{
+		name: 'Tailwind Vue',
+		extensions: ['.vue'],
+		parsers: ['vue']
 	}
 ]
 const parsers = {
@@ -28,6 +33,10 @@ const parsers = {
 	babel: {
 		...prettierParserBabel.parsers.babel,
 		parse: getParse('javascriptreact', prettierParserBabel.parsers.babel.parse)
+	},
+	vue: {
+		...prettierParserHTML.parsers.vue,
+		parse: getParse('html', prettierParserHTML.parsers.vue.parse)
 	}
 }
 

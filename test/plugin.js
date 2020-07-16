@@ -19,6 +19,7 @@ it('should sort classes correcly', () => {
 	testOnLanguage('default_behaviour', 'html', 'html')
 	testOnLanguage('default_behaviour', 'js', 'babel')
 	testOnLanguage('default_behaviour', 'js', 'flow')
+	testOnLanguage('default_behaviour', 'vue', 'vue')
 })
 
 it('should remove duplicate classes by default', () => {

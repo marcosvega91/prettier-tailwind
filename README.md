@@ -63,6 +63,9 @@ Install prettier-plugin-tailwind-css:
 ```
 npm install --save-dev prettier-plugin-tailwind-css
 ```
+```
+yarn add -D prettier-plugin-tailwind-css
+```
 
 ## Configuration
 

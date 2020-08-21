@@ -38,7 +38,9 @@ Actually the plugin works for the following languages:
 1. `html`
 2. `js`
 3. `jsx`
-4. `vue`
+4. `ts`
+5. `tsx`
+6. `vue`
 
 ### Input
 
@@ -63,6 +65,7 @@ Install prettier-plugin-tailwind-css:
 ```
 npm install --save-dev prettier-plugin-tailwind-css
 ```
+
 ```
 yarn add -D prettier-plugin-tailwind-css
 ```

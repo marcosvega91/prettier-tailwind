@@ -19,6 +19,7 @@ it('should sort classes correcly', () => {
 	testOnLanguage('default_behaviour', 'html', 'html')
 	testOnLanguage('default_behaviour', 'js', 'babel')
 	testOnLanguage('default_behaviour', 'js', 'flow')
+	testOnLanguage('default_behaviour', 'tsx', 'typescript')
 	testOnLanguage('default_behaviour', 'vue', 'vue')
 })
 
@@ -26,12 +27,14 @@ it('should remove duplicate classes by default', () => {
 	testOnLanguage('remove_duplicate', 'html', 'html')
 	testOnLanguage('remove_duplicate', 'js', 'babel')
 	testOnLanguage('remove_duplicate', 'js', 'flow')
+	testOnLanguage('remove_duplicate', 'tsx', 'typescript')
 })
 
 it('should not duplicate classes when are unknown', () => {
 	testOnLanguage('no_duplicate_unknown', 'html', 'html')
 	testOnLanguage('no_duplicate_unknown', 'js', 'babel')
 	testOnLanguage('no_duplicate_unknown', 'js', 'flow')
+	testOnLanguage('no_duplicate_unknown', 'tsx', 'typescript')
 })
 
 it('should not remove duplicates if options i set to false', () => {
@@ -42,6 +45,9 @@ it('should not remove duplicates if options i set to false', () => {
 		removeDuplicatesClasses: false
 	})
 	testOnLanguage('no_remove_duplicate', 'js', 'flow', {
+		removeDuplicatesClasses: false
+	})
+	testOnLanguage('no_remove_duplicate', 'tsx', 'typescript', {
 		removeDuplicatesClasses: false
 	})
 })

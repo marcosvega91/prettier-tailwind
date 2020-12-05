@@ -18,7 +18,7 @@ const languages = [
 	},
 	{
 		name: 'Tailwind HTML',
-		extensions: ['.html'],
+		extensions: ['.html', '.svelte'],
 		parsers: ['html']
 	},
 	{

@@ -1,0 +1,3 @@
+a {
+	@apply mx-auto flex justify-between items-center max-w-6xl h-16;
+}

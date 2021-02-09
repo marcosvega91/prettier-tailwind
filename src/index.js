@@ -2,6 +2,7 @@ import prettierParserHTML from 'prettier/parser-html'
 import prettierParserFlow from 'prettier/parser-flow'
 import prettierParserTypescript from 'prettier/parser-typescript'
 import prettierParserBabel from 'prettier/parser-babel'
+import prettierParserPostCss from 'prettier/parser-postcss'
 import { getParse } from './parser'
 import { options } from './options'
 
@@ -25,6 +26,21 @@ const languages = [
 		name: 'Tailwind Vue',
 		extensions: ['.vue'],
 		parsers: ['vue']
+	},
+	{
+		name: 'Tailwind CSS',
+		extensions: ['.css'],
+		parsers: ['css']
+	},
+	{
+		name: 'Tailwind SCSS',
+		extensions: ['.scss'],
+		parsers: ['scss']
+	},
+	{
+		name: 'Tailwind Less',
+		extensions: ['.less'],
+		parsers: ['less']
 	}
 ]
 const parsers = {
@@ -47,6 +63,18 @@ const parsers = {
 	vue: {
 		...prettierParserHTML.parsers.vue,
 		parse: getParse('html', prettierParserHTML.parsers.vue.parse)
+	},
+	css: {
+		...prettierParserPostCss.parsers.css,
+		parse: getParse('css', prettierParserPostCss.parsers.css.parse)
+	},
+	scss: {
+		...prettierParserPostCss.parsers.scss,
+		parse: getParse('scss', prettierParserPostCss.parsers.scss.parse)
+	},
+	less: {
+		...prettierParserPostCss.parsers.less,
+		parse: getParse('less', prettierParserPostCss.parsers.less.parse)
 	}
 }
 

@@ -41,6 +41,7 @@ Actually the plugin works for the following languages:
 4. `ts`
 5. `tsx`
 6. `vue`
+7. `svelte`
 
 ### Input
 

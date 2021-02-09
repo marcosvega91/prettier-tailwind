@@ -15,12 +15,15 @@ function testOnLanguage(identifier, language, parser, options = {}) {
 	expect(output).toEqual(formatted)
 }
 
-it('should sort classes correcly', () => {
+it('should sort classes correctly', () => {
 	testOnLanguage('default_behaviour', 'html', 'html')
 	testOnLanguage('default_behaviour', 'js', 'babel')
 	testOnLanguage('default_behaviour', 'js', 'flow')
 	testOnLanguage('default_behaviour', 'tsx', 'typescript')
 	testOnLanguage('default_behaviour', 'vue', 'vue')
+	testOnLanguage('default_behaviour', 'css', 'css')
+	testOnLanguage('default_behaviour', 'scss', 'scss')
+	testOnLanguage('default_behaviour', 'less', 'less')
 })
 
 it('should remove duplicate classes by default', () => {
@@ -28,6 +31,9 @@ it('should remove duplicate classes by default', () => {
 	testOnLanguage('remove_duplicate', 'js', 'babel')
 	testOnLanguage('remove_duplicate', 'js', 'flow')
 	testOnLanguage('remove_duplicate', 'tsx', 'typescript')
+	testOnLanguage('remove_duplicate', 'css', 'css')
+	testOnLanguage('remove_duplicate', 'scss', 'scss')
+	testOnLanguage('remove_duplicate', 'less', 'less')
 })
 
 it('should not duplicate classes when are unknown', () => {
@@ -35,6 +41,9 @@ it('should not duplicate classes when are unknown', () => {
 	testOnLanguage('no_duplicate_unknown', 'js', 'babel')
 	testOnLanguage('no_duplicate_unknown', 'js', 'flow')
 	testOnLanguage('no_duplicate_unknown', 'tsx', 'typescript')
+	testOnLanguage('no_duplicate_unknown', 'css', 'css')
+	testOnLanguage('no_duplicate_unknown', 'scss', 'scss')
+	testOnLanguage('no_duplicate_unknown', 'less', 'less')
 })
 
 it('should not remove duplicates if options i set to false', () => {
@@ -48,6 +57,15 @@ it('should not remove duplicates if options i set to false', () => {
 		removeDuplicatesClasses: false
 	})
 	testOnLanguage('no_remove_duplicate', 'tsx', 'typescript', {
+		removeDuplicatesClasses: false
+	})
+	testOnLanguage('no_remove_duplicate', 'css', 'css', {
+		removeDuplicatesClasses: false
+	})
+	testOnLanguage('no_remove_duplicate', 'scss', 'scss', {
+		removeDuplicatesClasses: false
+	})
+	testOnLanguage('no_remove_duplicate', 'less', 'less', {
 		removeDuplicatesClasses: false
 	})
 })
